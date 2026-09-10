@@ -1,0 +1,31 @@
+package actividad11;
+
+public class delantero extends futbolista {
+
+	private int goles;
+	private int remates;
+
+	public delantero(String nombre, String apellido, int edad, String club, int dorsal, int goles, int remates) {
+		super(nombre, apellido, edad, club, dorsal);
+		this.goles = goles;
+		this.remates = remates;
+
+	}
+	@Override
+	public String getPuesto() {
+		return "Delantero";
+	}
+	@Override
+	public String jugarLaPelota() {
+		return "Atacar";
+	}
+	@Override
+	public double calcularRendimiento() {
+		if (remates == 0) {
+			return 0;
+		}
+
+		return (double) goles / remates * 10;
+	}
+
+}
