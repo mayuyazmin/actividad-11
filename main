@@ -1,0 +1,60 @@
+package actividad11;
+
+import java.util.ArrayList;
+import java.util.List;
+
+public class Main {
+    public static void main(String[] args) {
+        List<futbolista> plantel = new ArrayList<>();
+        
+        // Instanciación de jugadores de distintos puestos
+     // Instanciación de jugadores de distintos puestos
+        plantel.add(new arquero("Emiliano", "Martínez", 31, "Aston Villa", 23, 6, 1));
+        plantel.add(new defensor("Cristian", "Romero", 26, "Tottenham", 13, 5, 8));
+        plantel.add(new defensor("Nicolas", "Otamendi", 36, "Benfica", 19, 3, 6));
+        plantel.add(new mediocampista("Rodrigo", "De Paul", 30, "Atlético Madrid", 7, 45, 2));
+        plantel.add(new delantero("Lionel", "Messi", 37, "Inter Miami", 10, 2, 3));
+
+        
+        System.out.println("RESUMEN DEL PARTIDO POR JUGADOR:");
+        for (futbolista f : plantel) {
+            // Polimorfismo: llama a resumenPartido sin saber el puesto concreto
+            System.out.println(f.resumenPartido());
+        }
+        
+        // Búsqueda del jugador de mejor rendimiento mediante polimorfismo
+        futbolista mejorJugador = plantel.get(0);
+        for (futbolista f : plantel) {
+            if (f.calcularRendimiento() > mejorJugador.calcularRendimiento()) {
+                mejorJugador = f;
+            }
+        }
+        
+        System.out.println("\n=== JUGADOR DE MEJOR RENDIMIENTO ===");
+        System.out.println(mejorJugador.getNombre() + " " + mejorJugador.getApellido() + " con un rendimiento de " + String.format("%.2f", mejorJugador.calcularRendimiento()));
+        
+        // Conteo por puesto usando instanceof
+        int cantArqueros = 0;
+        int cantDefensores = 0;
+        int cantMediocampistas = 0;
+        int cantDelanteros = 0;
+        
+        for (futbolista f : plantel) {
+            if (f instanceof arquero) {
+                cantArqueros++;
+            } else if (f instanceof defensor) {
+                cantDefensores++;
+            } else if (f instanceof mediocampista) {
+                cantMediocampistas++;
+            } else if (f instanceof delantero) {
+                cantDelanteros++;
+            }
+        }
+        
+        System.out.println("\nCANTIDAD DE JUGADORES POR PUESTO:");
+        System.out.println("arqueros: " + cantArqueros);
+        System.out.println("defensores: " + cantDefensores);
+        System.out.println("mediocampistas: " + cantMediocampistas);
+        System.out.println("delanteros: " + cantDelanteros);
+    }
+}
