@@ -1,0 +1,43 @@
+package actividad11;
+
+public class arquero extends futbolista {
+
+	   // private
+	    int atajadas;
+	   // private 
+	    int golesRecibidos;
+
+	    public arquero(String nombre, String apellido, int edad,
+	                   String club, int dorsal, int atajadas, int golesRecibidos) {
+
+	        super(nombre, apellido, edad, club, dorsal);
+	        this.atajadas = atajadas;
+	        this.golesRecibidos = golesRecibidos;
+	    }
+
+	    @Override
+	    public String getPuesto() {
+	        return "Arquero";
+	    }
+
+	    @Override
+	    public String jugarLaPelota() {
+	        return "Atajar";
+	    }
+
+	    @Override
+	    public double calcularRendimiento() {
+	        double rendimiento = atajadas - golesRecibidos;
+
+
+	        if (rendimiento > 10) {
+	            rendimiento = 10;
+	        }
+
+	        return rendimiento;
+	    }
+	}
+	
+	
+	
+
