@@ -1,0 +1,49 @@
+package actividad11;
+
+public class defensor extends futbolista {
+	 // private
+    int quites;
+   // private 
+    int despejes;
+
+    public defensor(String nombre, String apellido, int edad,
+                   String club, int dorsal, int quites, int despejes) {
+
+        super(nombre, apellido, edad, club, dorsal);
+        this.quites = quites;
+        this.despejes = despejes;
+    }
+	
+    @Override
+    public String getPuesto() {
+        return "Defensor";
+    }
+
+    @Override
+    public String jugarLaPelota() {
+        return "Defender";
+    }
+
+    @Override
+    public double calcularRendimiento() {
+        double rendimiento = (quites + despejes) / 2.0;
+
+        if (rendimiento > 10) {
+            rendimiento = 10;
+        }
+
+        return rendimiento;
+    }
+}
+    
+    
+    
+    
+    
+    
+    
+    
+    
+	
+
+
