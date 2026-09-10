@@ -1,0 +1,50 @@
+package actividad11;
+public abstract class futbolista extends persona {
+	private String club;
+	private int dorsal;
+
+	public futbolista(String nombre, String apellido, int edad, String club, int dorsal) {
+		super(nombre, apellido, edad);
+		this.club = club;
+		this.dorsal = dorsal;
+	}
+
+	public String getClub() {
+		return club;
+	}
+
+	public void setClub(String club) {
+		this.club = club;
+	}
+
+	public int getDorsal() {
+		return dorsal;
+	}
+
+	public void setDorsal(int dorsal) {
+		this.dorsal = dorsal;
+	}
+	
+	 public abstract String getPuesto();
+
+	    public abstract String jugarLaPelota();
+
+	    public abstract double calcularRendimiento();
+
+	    // Método concreto
+	    public String resumenPartido() {
+	        return "Puesto: " + getPuesto()
+	                + " | Acción: " + jugarLaPelota()
+	                + " | Rendimiento: " + calcularRendimiento();
+	    }
+	
+}
+	
+	
+	
+	
+	
+	
+	
+	
+
